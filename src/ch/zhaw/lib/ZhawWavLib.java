@@ -6,7 +6,7 @@ import javax.sound.sampled.Clip;
 
 /**
  * Simple API to play wav files based on Andrew Greensted wav file IO class (see
- * http://www.labbookpages.co.uk/audio/javaWavFiles.html).
+ * http://www.labbookpages.co.uk/audio/javaWavFiles.html). 
  */
 
 public class ZhawWavLib {
