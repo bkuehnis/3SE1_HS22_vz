@@ -36,7 +36,7 @@ public class ZhawWavLib {
 			return buffer;
 		} catch (Exception e) {
 			printException(filename, e);
-			return null;
+			return null; 
 		}
 	}
 
