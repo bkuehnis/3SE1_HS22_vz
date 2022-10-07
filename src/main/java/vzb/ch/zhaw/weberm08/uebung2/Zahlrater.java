@@ -19,7 +19,8 @@ public class Zahlrater {
 
 		
 		while (input != 1){
-			int zahl = rn.nextInt(zahlMin, zahlMax);
+			//TODO Kommentar von kuhs: Random.nextInt hat nur einen Paramter
+			int zahl = rn.nextInt(zahlMax);
 			System.out.println("Ist es die " + zahl + "?");
 			input = sc.nextInt();
 			

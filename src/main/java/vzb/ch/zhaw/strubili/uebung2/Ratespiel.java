@@ -16,7 +16,9 @@ public class Ratespiel {
 		
 		int max = 99;
 		int min = 0;
-		int g = rn.nextInt(min,max);
+		
+		//TODO Kommentar von kuhs: Random.nextInt hat nur einen Paramter
+		int g = rn.nextInt(max);
 		
 		Scanner keyScan = new Scanner(System.in);
 		System.out.print("Ist es die "+g+"?");
@@ -24,7 +26,7 @@ public class Ratespiel {
 		
 			while (antwort != 1) {
 				
-				g = rn.nextInt(min,max);
+				g = rn.nextInt(max);
 				System.out.println("Ist es die Zahl "+g+"?");
 				antwort = keyScan.nextInt();
 			

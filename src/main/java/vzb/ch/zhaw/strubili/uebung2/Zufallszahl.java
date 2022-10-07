@@ -8,7 +8,8 @@ import java.util.Scanner;
 			
 			Random rn = new Random();
 			
-			int zz = rn.nextInt(0,100);
+			//TODO Kommentar von kuhs: Random.nextInt hat nur einen Paramter
+			int zz = rn.nextInt(100);
 			int count = 1;
 			
 			Scanner keyScan = new Scanner(System.in);
