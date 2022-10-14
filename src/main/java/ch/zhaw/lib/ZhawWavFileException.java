@@ -1,6 +1,7 @@
 package ch.zhaw.lib;
 
 
+
 public class ZhawWavFileException extends Exception
 {	
 	public ZhawWavFileException()
@@ -23,3 +24,4 @@ public class ZhawWavFileException extends Exception
 		super(cause);
 	}
 }
+

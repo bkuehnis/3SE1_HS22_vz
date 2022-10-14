@@ -17,6 +17,9 @@ import javax.swing.JOptionPane;
  */
 public class ZhawImgLib {
 
+	//private constructor to hide the public one.
+	private ZhawImgLib() {}
+
 	/**
 	 * Read a filename returns a two dimensional integer array
 	 * @param filename path to the image to read.
@@ -26,7 +29,7 @@ public class ZhawImgLib {
 	public static int[][] readImage(String filename) {
 		BufferedImage img = readImg(filename);
 		if (img == null) {
-			return null;
+			return new int[0][0];
 		}
 		int width = img.getWidth();
 		int height = img.getHeight();

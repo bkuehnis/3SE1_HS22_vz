@@ -1,4 +1,5 @@
 package ch.zhaw.lib;
+
 import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -57,7 +58,7 @@ public class ZhawCsvLib {
 	 * @param filename path to the file
 	 * @return an double two dimensional array containing the numbers.
 	 */
-	static double[][] readDoubleArray2D(String filename) {
+	public static double[][] readDoubleArray2D(String filename) {
 		String content = readFile(filename);
 		return Arrays.stream(content.split("\n"))
 				.map(s -> Arrays.stream(s.split(",")).mapToDouble(Double::parseDouble).toArray())
@@ -92,7 +93,7 @@ public class ZhawCsvLib {
 	 * @param array with content to be written
 	 * @return @code true if the file was written, otherwise @code false
 	 */
-	static boolean writeDoubleArray(String filename, double[][] array) {
+	public static boolean writeDoubleArray(String filename, double[][] array) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length - 1; j++) {
@@ -114,7 +115,7 @@ public class ZhawCsvLib {
 	 * @param content to be written
 	 * @return @code true if the file was written, otherwise @code false
 	 */
-	static boolean writeFile(String filename, String content) {
+	public static boolean writeFile(String filename, String content) {
 		try (FileWriter writer = new FileWriter(filename)) {
 			writer.write(content);
 		} catch (Exception e) {
@@ -134,7 +135,7 @@ public class ZhawCsvLib {
 	 *       @param filename path to the file
 	 * @return @code true if the file was written, otherwise @code false
 	 */
-	static String readFile(String filename) {
+	public static String readFile(String filename) {
 		StringBuilder sb = new StringBuilder();
 		try (
 				FileReader reader = new FileReader(filename, StandardCharsets.UTF_8);

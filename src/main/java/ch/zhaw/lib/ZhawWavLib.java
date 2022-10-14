@@ -1,4 +1,5 @@
 package ch.zhaw.lib;
+
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -11,9 +12,10 @@ import javax.sound.sampled.Clip;
 
 public class ZhawWavLib {
 
-	//private constructor to hide the public one.
-	private ZhawWavLib() {}
-	
+	// private constructor to hide the public one.
+	private ZhawWavLib() {
+	}
+
 	/**
 	 * Read a wav file and extract the sample values.
 	 * 
@@ -22,8 +24,8 @@ public class ZhawWavLib {
 	 */
 	public static double[] read(String filename) {
 		// Open the wav file
-		try (ZhawWavFile wavFile = ZhawWavFile.openWavFile(new File(filename))){
-			
+		try (ZhawWavFile wavFile = ZhawWavFile.openWavFile(new File(filename))) {
+
 			// Get the number of audio channels and frames
 			long numChannels = wavFile.getNumChannels();
 			long numFrames = wavFile.getNumFrames();
@@ -36,7 +38,7 @@ public class ZhawWavLib {
 			return buffer;
 		} catch (Exception e) {
 			printException(filename, e);
-			return null;
+			return new double[0];
 		}
 	}
 
@@ -51,7 +53,7 @@ public class ZhawWavLib {
 		int sampleRate = 44100; // Samples per second
 
 		// Calculate the number of frames required
-		long numFrames = (long) (data.length);
+		long numFrames = data.length;
 		// Create a wav file
 
 		try (ZhawWavFile wavFile = ZhawWavFile.newWavFile(new File(filename), 2, numFrames / 2, 16, sampleRate)) {
@@ -73,7 +75,7 @@ public class ZhawWavLib {
 	 */
 	public static void play(String filename) {
 		// Calculate length of the file in seconds
-		try (ZhawWavFile wavFile = ZhawWavFile.openWavFile(new File(filename))){			
+		try (ZhawWavFile wavFile = ZhawWavFile.openWavFile(new File(filename))) {
 			float wavFileLength = (float) wavFile.getNumFrames() / wavFile.getSampleRate();
 
 			// Open audio stream and start playback
@@ -86,7 +88,8 @@ public class ZhawWavLib {
 			// Wait for playback to finish
 			Thread.sleep((long) (1000 * wavFileLength));
 			System.out.println("Finished playback of " + filename + " (" + wavFileLength + " seconds)");
-
+		} catch (InterruptedException ie) {
+			Thread.currentThread().interrupt();
 		} catch (Exception e) {
 			printException(filename, e);
 		}
@@ -98,7 +101,7 @@ public class ZhawWavLib {
 	 * @param filename Filename and path of the wav file.
 	 */
 	public static void info(String filename) {
-		try (ZhawWavFile wavFile = ZhawWavFile.openWavFile(new File(filename))){			
+		try (ZhawWavFile wavFile = ZhawWavFile.openWavFile(new File(filename))) {
 			wavFile.display();
 		} catch (Exception e) {
 			printException(filename, e);
