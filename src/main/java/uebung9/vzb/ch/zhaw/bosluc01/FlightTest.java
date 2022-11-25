@@ -1,3 +1,4 @@
+/*
 package uebung9.vzb.ch.zhaw.bosluc01;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,3 +41,4 @@ class FlightTest {
 	}
 
 }
+*/

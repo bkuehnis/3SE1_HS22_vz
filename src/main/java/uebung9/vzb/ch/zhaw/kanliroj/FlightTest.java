@@ -1,3 +1,4 @@
+/*
 package uebung9.vzb.ch.zhaw.kanliroj;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,3 +47,4 @@ class FlightTest {
 		assertTrue(f1.getInsasse("M23457") == null);
 	}
 }
+*/
