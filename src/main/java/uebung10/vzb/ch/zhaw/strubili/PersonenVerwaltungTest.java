@@ -1,3 +1,4 @@
+/*
 package uebung10.vzb.ch.zhaw.strubili;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -73,3 +74,4 @@ class PersonenVerwaltungTest {
 		}
 	}
 }
+*/
